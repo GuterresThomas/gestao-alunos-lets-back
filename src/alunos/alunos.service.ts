@@ -11,20 +11,20 @@ export class AlunosService {
 
     constructor(
         @InjectRepository(Aluno) // Injeta o repositório do Aluno
-        private readonly alunoRepository: Repository<Aluno>,
+        private readonly alunosRepository: Repository<Aluno>,
     ) {}
 
   async findAll(): Promise<Aluno[]> {
-    return this.alunoRepository.find();
+    return this.alunosRepository.find();
   }
 
   async findOne(id: number): Promise<Aluno> {
-    return this.alunoRepository.findOne({ where: { id } });
+    return this.alunosRepository.findOne({ where: { id } });
   }
 
   async create(aluno: Partial<Aluno>): Promise<Aluno> {
-    const newAluno = this.alunoRepository.create(aluno);
-    return this.alunoRepository.save(newAluno);
+    const newAluno = this.alunosRepository.create(aluno);
+    return this.alunosRepository.save(newAluno);
   }
 
   
@@ -35,10 +35,10 @@ export class AlunosService {
       throw new BadRequestException('Nenhum dado fornecido para atualização.');
     }
 
-    return this.alunoRepository.update(id, alunoToUpdate);
+    return this.alunosRepository.update(id, alunoToUpdate);
   }
 
   async delete(id: number): Promise<void> {
-    await this.alunoRepository.delete(id);
+    await this.alunosRepository.delete(id);
   }
 }
