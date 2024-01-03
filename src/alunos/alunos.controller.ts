@@ -11,10 +11,11 @@ import {
     HttpCode,
     Logger
   } from '@nestjs/common';
+  
   import { AlunosService } from './alunos.service';
   import { Aluno } from './models/aluno.entity';
   
-@Controller('alunos')
+@Controller('api/v1/alunos')
 export class AlunosController {
     private readonly logger = new Logger(AlunosService.name);
 
